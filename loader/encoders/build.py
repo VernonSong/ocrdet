@@ -5,12 +5,12 @@
 # 欲买桂花同载酒，终不似、少年游。
 # ======================================================================================================================
 from utils.register import Registry
+from loader.encoders.base_encoder import BaseEncoder
 
-
-LABEL_ENCODER_REGISTRY = Registry("LABEL_ENCODER")
-LABEL_ENCODER_REGISTRY.__doc__ = """
+ENCODER_REGISTRY = Registry("ENCODER")
+ENCODER_REGISTRY.__doc__ = """
 """
 
 
-def build_label_encoder(name, stride):
-    return LABEL_ENCODER_REGISTRY.get(name)(stride)
+def build_encoder(name, cfg) -> BaseEncoder:
+    return ENCODER_REGISTRY.get(name)(cfg)

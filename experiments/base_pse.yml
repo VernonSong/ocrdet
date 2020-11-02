@@ -1,0 +1,12 @@
+MODEL:
+  CODERS: ['PSE']
+  BACKBONE:
+    NAME: 'resnet50'
+  META_ARCH:
+    NAME: 'FPN'
+    USE_FUSE: True
+  DB:
+    INPUT_LAYER: 'fuse'
+    BINARY_WEIGHT: 1.
+    PROBABILITY_WEIGHT: 1.
+    SHRESHOLD_WEIGHT: 10.

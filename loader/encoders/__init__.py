@@ -4,8 +4,12 @@
 # @Software: PyCharm
 # 欲买桂花同载酒，终不似、少年游。
 # ======================================================================================================================
-from loader.encoder_hooks.build import build_label_encoder_hook
+from loader.encoders.build import build_encoder
+from loader.encoders.training_mask import TrainingMaskEncoder
+from loader.encoders.db import DBEncoder
+from loader.encoders.semantic import SemanticEncoder
+
 
 __all__ = [
-    "build_label_encoder_hook",
+    "build_encoder",
 ]

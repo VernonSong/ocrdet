@@ -11,7 +11,5 @@ DATASET_REGISTRY.__doc__ = """
 """
 
 
-def build_dataset(cfg):
-
-    name = cfg.DATA.NAME
-    return DATASET_REGISTRY.get(name)(cfg)
+def build_dataset(name, dir):
+    return DATASET_REGISTRY.get(name)(dir)

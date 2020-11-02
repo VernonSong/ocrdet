@@ -1,0 +1,7 @@
+MODEL:
+  CODERS: ['EAST']
+  BACKBONE:
+    NAME: 'resnet50'
+  META_ARCH:
+    NAME: 'FPN'
+    USE_FUSE: True

@@ -4,8 +4,13 @@
 # @Software: PyCharm
 # 欲买桂花同载酒，终不似、少年游。
 # ======================================================================================================================
-from data.datasets.icdar import ICDAR
-from data.datasets.build import build_dataset
+from loader.datasets.build import build_dataset
+from loader.datasets.icdar2015 import ICDAR2015
+from loader.datasets.icdar2017 import ICDAR2017
+from loader.datasets.mtwi import MTWI
+from loader.datasets.labelme import LabelMe
+from loader.datasets.original import Original
+
 
 __all__ = [
     "build_dataset",
