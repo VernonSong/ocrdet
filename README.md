@@ -5,16 +5,29 @@
 
 ## 数据集
 
-
 - [x] icdar2015
+- [x] icdar2017
 - [x] mtwi
-- [ ] icdar2017
+- [x] labelme
 
+## backbone
+
+- [x] mobilenet_v2
+- [x] resnet
+
+## meta-architecture
+
+- [x] FPN
+- [x] HRnet
 
 
 ## 算法
 
+- [] east
+- [] psenet
+- [] dbnet
 
-- [ ] east
-- [ ] psenet
-- [ ] dbnet
+
+## Result
+
+

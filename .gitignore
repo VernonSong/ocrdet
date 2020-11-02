@@ -1,0 +1,5 @@
+data
+.idea
+projects/icdar2015/result
+projects/icdar2015/logs
+__pycache__
