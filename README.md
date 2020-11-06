@@ -25,9 +25,12 @@
 
 - [] east
 - [] psenet
-- [] dbnet
+- [x] dbnet
 
 
 ## Result
 
+|模型|骨干网络|precision|recall|Hmean|下载链接|
+|-|-|precision|recall|F1|
+|DB|ResNet50|85.51%|81.85%|83.64%|
 

@@ -1,0 +1,60 @@
+DATA:
+  NAMES: ['ICDAR2015']
+  DIRS: ['../../data/icdar2015']
+AUGMENT:
+  INPUT_SHAPE: (640, 640)
+  FLIP: 0.5
+  ZOOM_IN: 0.5
+  MIN_SCALE: 0.5
+  MAX_SCALE: 3.0
+  ASPECT_RATIO: (0.9, 1.1)
+  TRANSLATE_PRESENT: (-0.1, 0.1)
+  ROTATE: (-15, 15)
+  SHEAR: (-5, 5)
+  PERSPECTIVE_TRANSFORM: (0.01, 0.15)
+  BRIGHTNESS: (0.5, 1.5)
+  HUE: (-3., 3.)
+  SATURATION: (0.5, 1.5)
+  BACKGROUND: True
+MODEL:
+  CODERS: ['DB', 'Semantic']
+  DB:
+    STRIDE: 1
+    INPUT_LAYER: 'fuse'
+  SEMANTIC:
+    STRIDE: 4
+    INPUT_LAYER: 'fuse'
+    SEMANTIC_WEIGHT: 0.2
+  BACKBONE:
+    NAME: 'resnet50'
+    PRETRAINED: True
+    NORM: 'BN'
+    PRETRAINED_DIR: '../../pretrained'
+    FREEZE_AT : 0
+  META_ARCH:
+    NAME: 'FPN'
+    NORM: ''
+    OUT_PLANES: 128
+    USE_FUSE: True
+  HEAD:
+    NORM: 'GN'
+
+SOLVER:
+  DEVICE: 'cuda'
+  WEIGHTS: ''
+  SAVE_DIR: 'logs/db_resnet50_s1_29_n'
+  CHECKPOINT_NAME: 'db'
+  CHECKPOINT_PERIOD: 5000
+  BATCH_SIZE: 4
+  NUM_WORKS: 4
+  OPTIMIZER: 'Adam'
+  MAX_ITERS: 300000
+  LR:
+    NAME: 'WarmupCosineLR'
+    BASE_LR: 0.001
+    WARMUP_ITERS: 500
+    WARMUP_FACTOR: 0.01
+  TENSORBOARD_WRITER:
+    LOG_DIR: 'logs/db_resnet50_s1_29_dcf'
+    SCALAR_PERIOD: 10
+    IMAGE_PERIOD: 100
